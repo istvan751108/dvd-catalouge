@@ -19,7 +19,7 @@
 		<java.version>17</java.version>
 		<jacoco.version>0.8.7</jacoco.version>
 		<coverage.branchLimit>80%</coverage.branchLimit>
-		<coverage.lineLimit>80%</coverage.lineLimit>
+		<coverage.lineLimit>71%</coverage.lineLimit>
 		<coverage.type>BUNDLE</coverage.type>
 	</properties>
 
