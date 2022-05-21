@@ -18,7 +18,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<jacoco.version>0.8.7</jacoco.version>
-		<coverage.branchLimit>71%</coverage.branchLimit>
+		<coverage.branchLimit>80%</coverage.branchLimit>
 		<coverage.lineLimit>71%</coverage.lineLimit>
 		<coverage.type>BUNDLE</coverage.type>
 	</properties>
@@ -98,6 +98,7 @@
 				<configuration>
 					<excludes>
 						<exclude>GIT\nye\dvd-catalouge\DvdCatalougeApplication.class</exclude>
+						<exclude>GIT\nye\dvd-catalouge\configuration\**</exclude>
 						<exclude>*Test</exclude>
 					</excludes>
 					<rules>
@@ -118,6 +119,34 @@
 						</rule>
 					</rules>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.1.2</version>
+				<configuration>
+					<configLocation>checkstyle.xml</configLocation>
+					<encoding>UTF-8</encoding>
+					<consoleOutput>true</consoleOutput>
+					<failsOnError>true</failsOnError>
+					<linkXRef>false</linkXRef>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.puppycrawl.tools</groupId>
+						<artifactId>checkstyle</artifactId>
+						<version>9.0.1</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>validate</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
