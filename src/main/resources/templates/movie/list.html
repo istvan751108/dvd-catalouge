@@ -14,15 +14,16 @@
 
     <a th:href="@{/movie/profile}"
        type="button"
-       class="btn btn-info">Profil</a>
+       class="btn btn-info">Lemez lista</a>
 
     <table class="table table-striped pt-5">
-        <caption>Filmek listája</caption>
+        <caption>DVD Lemezek listája</caption>
         <thread>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Cím</th>
-                <th scope="col">Év</th>
+                <th scope="col">Kiadó</th>
+                <th scope="col">Kiadási Év</th>
                 <th scope="col">Műfaj</th>
 
             </tr>
@@ -32,15 +33,13 @@
             <th scope="row"
                 th:text="${movie.id}" ></th>
             <td th:text="${movie.title}"></td>
+            <td th:text="${movie.publisher}"></td>
             <td th:text="${movie.year}"></td>
             <td th:text="${movie.type}"></td>
             <td>
-                <!--                <a th:href="@{movie/profile}"-->
-                <!--                   type="button"-->
-                <!--                   class="btn btn-warning">Szerkesztés</a>-->
                 <a th:href="@{'/movie/' + ${movie.id} +  '/put'}"
                    type="button"
-                   class="btn btn-danger">Kedvenc</a>
+                   class="btn btn-success">Saját gyűjteményhez adás</a>
             </td>
         </tr>
         </tbody>

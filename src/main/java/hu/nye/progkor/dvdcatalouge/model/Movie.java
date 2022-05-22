@@ -9,6 +9,7 @@ public class Movie {
 
     private int id;
     private String title;
+    private String publisher;
     private int year;
     private Type type;
 
@@ -18,9 +19,10 @@ public class Movie {
     /**
      * Dvd constructor.
      */
-    public Movie(int id, String title, int year, Type type) {
+    public Movie(int id, String title, String publisher, int year, Type type) {
         this.id = id;
         this.title = title;
+        this.publisher = publisher;
         this.year = year;
         this.type = type;
     }
@@ -31,6 +33,10 @@ public class Movie {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
     public void setYear(int year) {
@@ -47,6 +53,10 @@ public class Movie {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getPublisher() {
+        return publisher;
     }
 
     public int getYear() {
@@ -67,12 +77,13 @@ public class Movie {
         }
         Movie movie = (Movie) o;
         return id == movie.id && year == movie.year
-                && Objects.equals(title, movie.title) && type == movie.type;
+                && Objects.equals(title, movie.title) && Objects.equals(publisher, movie.publisher)
+                && type == movie.type;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, year, type);
+        return Objects.hash(id, title, publisher, year, type);
     }
 
     @Override
@@ -82,6 +93,8 @@ public class Movie {
                 "id=" + id
                 +
                 ", title='" + title + '\''
+                +
+                ", publisher='" + publisher + '\''
                 +
                 ", year=" + year
                 +

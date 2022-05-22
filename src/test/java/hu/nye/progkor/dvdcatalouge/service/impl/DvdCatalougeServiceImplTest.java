@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DvdCatalougeServiceImplTest {
 
-    private static final Movie KILLBILL = new Movie(1, "Kill Bill 2", 2010, Type.Dráma);
-    private static final Movie RAMBO = new Movie(2, "RAMBÓ", 2008, Type.Akciófilm);
-    private static final Movie INDIANA1 = new Movie(3, "AZ ELVESZETT FRIGYLÁDA FOSZTOGATÓI", 2003, Type.Kaland);
-    private static final Movie SNOWWHITE = new Movie(4, "HÓFEHÉRKE ÉS A HÉT TÖRPE", 2004, Type.Animáció);
+    private static final Movie KILLBILL = new Movie(1, "Kill Bill 2", "Miramax",2010, Type.Dráma);
+    private static final Movie RAMBO = new Movie(2, "RAMBÓ", "Paramount", 2008, Type.Akciófilm);
+    private static final Movie INDIANA1 = new Movie(3, "AZ ELVESZETT FRIGYLÁDA FOSZTOGATÓI", "Fox", 2003, Type.Kaland);
+    private static final Movie SNOWWHITE = new Movie(4, "HÓFEHÉRKE ÉS A HÉT TÖRPE", "Disney",2004, Type.Animáció);
     private static final List<Movie> MOVIES = List.of(
             KILLBILL,
             RAMBO,

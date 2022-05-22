@@ -20,10 +20,10 @@ public class DvdCatalougeServiceImpl implements DvdCatalougeService {
     private static final List<Movie> DATABASE2 = new ArrayList<>();
 
     static {
-        DATABASE.add(new Movie(1, "Kill Bill 2", 2010, Type.Dráma));
-        DATABASE.add(new Movie(2, "RAMBÓ", 2008, Type.Akciófilm));
-        DATABASE.add(new Movie(3, "AZ ELVESZETT FRIGYLÁDA FOSZTOGATÓI", 2003, Type.Kaland));
-        DATABASE.add(new Movie(4, "HÓFEHÉRKE ÉS A HÉT TÖRPE", 2004, Type.Animáció));
+        DATABASE.add(new Movie(1, "Kill Bill 2", "Miramax", 2010, Type.Dráma));
+        DATABASE.add(new Movie(2, "RAMBÓ", "Paramount", 2008, Type.Akciófilm));
+        DATABASE.add(new Movie(3, "AZ ELVESZETT FRIGYLÁDA FOSZTOGATÓI", "Fox", 2003, Type.Kaland));
+        DATABASE.add(new Movie(4, "HÓFEHÉRKE ÉS A HÉT TÖRPE", "Disney", 2004, Type.Animáció));
     }
 
     public DvdCatalougeServiceImpl(List<Movie> movies) {
