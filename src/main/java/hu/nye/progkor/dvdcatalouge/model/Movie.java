@@ -37,7 +37,7 @@ public class Movie {
         this.year = year;
     }
 
-    public void setGenre(Type type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
