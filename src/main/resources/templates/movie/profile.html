@@ -10,19 +10,20 @@
 <body>
 
 <div class="container">
-  <h3 class="pt-5">Kedvenc filmek</h3>
+  <h3 class="pt-5">Saját filmek</h3>
 
   <a th:href="@{/movie}"
      type="button"
      class="btn btn-info">Vissza</a>
 
   <table class="table table-striped pt-5">
-    <caption>Filmek listája</caption>
+    <caption>Saját Lemez lista</caption>
     <thread>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Cím</th>
-        <th scope="col">Év</th>
+        <th scope="col">Kiadó</th>
+        <th scope="col">Kiadási Év</th>
         <th scope="col">Műfaj</th>
 
       </tr>
@@ -32,12 +33,10 @@
       <th scope="row"
           th:text="${movie.id}" ></th>
       <td th:text="${movie.title}"></td>
+      <td th:text="${movie.publisher}"></td>
       <td th:text="${movie.year}"></td>
       <td th:text="${movie.type}"></td>
       <td>
-        <!--                <a th:href="@{movie/profile}"-->
-        <!--                   type="button"-->
-        <!--                   class="btn btn-warning">Szerkesztés</a>-->
         <a th:href="@{'/movie/' + ${movie.id} +  '/delete'}"
            type="button"
            class="btn btn-danger">Törlés</a>
