@@ -5,25 +5,38 @@ import hu.nye.progkor.dvdcatalouge.model.Movie;
 import hu.nye.progkor.dvdcatalouge.model.exception.NotFoundException;
 import hu.nye.progkor.dvdcatalouge.service.DvdCatalougeService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DvdCatalougeServiceImplTest {
 
-    private static final Movie KILLBILL = new Movie(1, "Kill Bill 2", "Miramax",2010, Type.Dráma);
+    private static final Movie KILLBILL = new Movie(1, "Kill Bill 2", "Miramax", 2010, Type.Dráma);
     private static final Movie RAMBO = new Movie(2, "RAMBÓ", "Paramount", 2008, Type.Akciófilm);
     private static final Movie INDIANA1 = new Movie(3, "AZ ELVESZETT FRIGYLÁDA FOSZTOGATÓI", "Fox", 2003, Type.Kaland);
-    private static final Movie SNOWWHITE = new Movie(4, "HÓFEHÉRKE ÉS A HÉT TÖRPE", "Disney",2004, Type.Animáció);
+    private static final Movie SNOWWHITE = new Movie(4, "HÓFEHÉRKE ÉS A HÉT TÖRPE", "Disney", 2004, Type.Animáció);
     private static final List<Movie> MOVIES = List.of(
             KILLBILL,
             RAMBO,
             INDIANA1,
             SNOWWHITE
     );
+    private static final List<Movie> DATABASE = new ArrayList<>();
+    private static final List<Movie> DATABASE2 = new ArrayList<>();
+
+    static {
+        DATABASE.add(new Movie(1, "Kill Bill 2", "Miramax", 2010, Type.Dráma));
+        DATABASE.add(new Movie(2, "RAMBÓ", "Paramount", 2008, Type.Akciófilm));
+        DATABASE.add(new Movie(3, "AZ ELVESZETT FRIGYLÁDA FOSZTOGATÓI", "Fox", 2003, Type.Kaland));
+        DATABASE.add(new Movie(4, "HÓFEHÉRKE ÉS A HÉT TÖRPE", "Disney", 2004, Type.Animáció));
+    }
+
     private static final List<Movie> PROFILEMOVIES = List.of(
 
     );
@@ -56,7 +69,7 @@ public class DvdCatalougeServiceImplTest {
     @Test
     void getMovieShouldThrowNotFoundExceptionWhenGivenIdOfNotExistingMovie() {
         // when then
-        assertThrows(NotFoundException.class, () -> underTest.getMovie( UNKNOWN_MOVIE_ID));
+        assertThrows(NotFoundException.class, () -> underTest.getMovie(UNKNOWN_MOVIE_ID));
     }
 
     @Test
@@ -67,4 +80,13 @@ public class DvdCatalougeServiceImplTest {
         assertThat(actual).isEqualTo(PROFILEMOVIES);
     }
 
+    @Test
+    @DisplayName("Should removes the movie from the profile when the movie is in the profile")
+    public void testDeleteMovieWhenMovieIsInTheProfileThenRemovesTheMovieFromTheProfile() {
+
+        DvdCatalougeServiceImpl dvdCatalougeService = new DvdCatalougeServiceImpl(DATABASE);
+        dvdCatalougeService.addMovie(1);
+        dvdCatalougeService.deleteMovie(1);
+        assertEquals(0, dvdCatalougeService.getAllMovieProfile().size());
+    }
 }
