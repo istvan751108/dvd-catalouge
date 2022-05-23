@@ -97,10 +97,10 @@
 				</executions>
 				<configuration>
 					<excludes>
-						<exclude>dvdcatalouge\DvdCatalougeApplication.class</exclude>
-						<exclude>dvdcatalouge\configuration\**</exclude>
-						<exclude>dvdcatalouge\controller\**</exclude>
-						<exclude>dvdcatalouge\model\**</exclude>
+						<exclude>hu\nye\progkor\dvdcatalouge\DvdCatalougeApplication.class</exclude>
+						<exclude>hu\nye\progkor\dvdcatalouge\configuration\**</exclude>
+						<exclude>hu\nye\progkor\dvdcatalouge\controller\**</exclude>
+						<exclude>hu\nye\progkor\dvdcatalouge\model\**</exclude>
 						<exclude>*Test</exclude>
 					</excludes>
 					<rules>
