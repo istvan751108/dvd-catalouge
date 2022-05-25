@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 <head>
   <meta charset="utf-8">
   <meta name="viewport"
@@ -36,7 +37,7 @@
     <tbody>
     <tr th:each="movie: ${movies}">
       <th scope="row"
-          th:text="${movie.id}" ></th>
+          th:text="${movie.id}"></th>
       <td th:text="${movie.title}"></td>
       <td th:text="${movie.publisher}"></td>
       <td th:text="${movie.year}"></td>
